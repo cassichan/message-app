@@ -1,11 +1,9 @@
 <div>
   <app-message-list></app-message-list>
   <br/>
-  <div class="pokemon-container">
     <input #nextInput />
     <button (click)="valueSubject$.next(nextInput.value)">
       Next Subject Value
     </button>
-    <pre>{{ fromPokeApi$ | async | json }}</pre>
-  </div>
+    <app-pokemon></app-pokemon>
 </div>

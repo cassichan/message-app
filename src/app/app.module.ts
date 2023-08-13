@@ -6,9 +6,10 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { MessageListComponent } from './message-list/message-list.component';
+import { PokemonComponent } from './pokemon/pokemon/pokemon.component';
 
 @NgModule({
-  declarations: [AppComponent, MessageListComponent],
+  declarations: [AppComponent, MessageListComponent, PokemonComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

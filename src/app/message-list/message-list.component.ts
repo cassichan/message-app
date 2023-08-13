@@ -8,13 +8,16 @@ import { Observable } from 'rxjs';
 })
 export class MessageListComponent implements OnDestroy {
   messages = new Observable((observer) => {
-    observer.next('Hello');
-    observer.next('Hello again');
-    // observer.error('Error receiving the message');
+    try {
+      observer.next('Hello');
+      observer.next('Hello again');
+    } catch (err) {
+      observer.error(err);
+    }
     return {
       unsubscribe() {
         observer.complete();
-        console.log('No more messages!')
+        console.log('No more messages!');
       },
     };
   });

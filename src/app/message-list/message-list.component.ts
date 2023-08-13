@@ -4,16 +4,17 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-message-list',
   templateUrl: './message-list.component.html',
-  styleUrls: ['./message-list.component.scss']
+  styleUrls: ['./message-list.component.scss'],
 })
 export class MessageListComponent implements OnDestroy {
   messages = new Observable((observer) => {
     observer.next('Hello');
     observer.next('Hello again');
-    observer.error('Error receiving the message');
+    // observer.error('Error receiving the message');
     return {
       unsubscribe() {
-        console.log('No more messages');
+        observer.complete();
+        console.log('No more messages!')
       },
     };
   });
@@ -25,9 +26,14 @@ export class MessageListComponent implements OnDestroy {
     error(err) {
       console.log(`Error: ${err}`);
     },
+    complete() {
+      console.log('Read all messages!');
+    },
   });
 
- ngOnDestroy() {
+  ngOnDestroy() {
     this.messageSubscription.unsubscribe();
   }
 }
+
+// Use the catchError() rxjs operator to handle errors in the observable

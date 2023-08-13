@@ -18,10 +18,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
   title = 'message-app';
-  name = 'Angular';
-  numberArray$ = of([1, 2, 3, 4, 5]);
-  valueSubject$ = new Subject<string>();
 
+  valueSubject$ = new Subject<string>();
   http = inject(HttpClient);
   fromPokeApi$ = this.http
     .get<{

@@ -9,4 +9,6 @@ import { PokemonService } from './pokemon.service';
 export class PokemonComponent {
   private pokemonService = inject(PokemonService);
   pokemonData$ = this.pokemonService.fromPokeApi$;
+
+  //Angular handles unsubscribing automatically when observable in the template
 }
